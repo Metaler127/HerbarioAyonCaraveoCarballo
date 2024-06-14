@@ -1,6 +1,8 @@
 import axios from "axios";
 
-const apiRoute = axios.create({ baseURL: "http://127.0.0.1:8000/api/" });
+const apiRoute = axios.create({
+  baseURL: "https://herbarioapi-production-f892.up.railway.app/api/",
+});
 
 export async function fetchLogin(data) {
   const result = await apiRoute.post("Login", data);

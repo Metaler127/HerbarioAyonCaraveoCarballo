@@ -5,7 +5,7 @@ import axios from "axios";
 
 function Cards() {
   const url =
-    "https://herbarioapi-production-f892.up.railway.app/api/Observacion";
+    "https://herbarioapi-production-f892.up.railway.app/api/observacion";
   const [publicaciones, setPublicaciones] = useState([]);
 
   useEffect(() => {

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const apiRoute = axios.create({
-  baseURL: "https://herbarioapi-production-f892.up.railway.app/api/",
+  baseURL: "https://herbarioapi-production-7512.up.railway.app/api/",
 });
 
 export async function fetchLogin(data) {

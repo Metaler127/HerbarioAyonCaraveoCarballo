@@ -5,7 +5,7 @@ import axios from "axios";
 
 function Cards() {
   const url =
-    "https://herbarioapi-production-f892.up.railway.app/api/observacion";
+    "https://herbarioapi-production-7512.up.railway.app/api/observacion";
   const [publicaciones, setPublicaciones] = useState([]);
 
   useEffect(() => {
@@ -43,7 +43,7 @@ function MyPlantCard({ publicacion }) {
     >
       <img
         className="w-full"
-        src={`https://herbarioapi-production-f892.up.railway.app${publicacion.img}`}
+        src={`https://herbarioapi-production-7512.up.railway.app${publicacion.img}`}
         alt="imagen bonita"
       ></img>
       <div className="px-6 py-4">

@@ -36,7 +36,7 @@ function MySlider({ img }) {
       ) : (
         <picture className="h-full items-center justify-center">
           <img
-            src={`http://127.0.0.1:8000${img}`}
+            src={`https://herbarioapi-production-f892.up.railway.app${img}`}
             className="w-full h-full"
             alt="Imagen"
           />

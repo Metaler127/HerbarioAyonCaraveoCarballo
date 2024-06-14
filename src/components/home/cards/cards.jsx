@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 function Cards() {
-  const url = "http://127.0.0.1:8000/api/Observacion";
+  const url =
+    "https://herbarioapi-production-f892.up.railway.app/api/Observacion";
   const [publicaciones, setPublicaciones] = useState([]);
 
   useEffect(() => {
@@ -42,7 +43,7 @@ function MyPlantCard({ publicacion }) {
     >
       <img
         className="w-full"
-        src={`http://127.0.0.1:8000${publicacion.img}`}
+        src={`https://herbarioapi-production-f892.up.railway.app${publicacion.img}`}
         alt="imagen bonita"
       ></img>
       <div className="px-6 py-4">

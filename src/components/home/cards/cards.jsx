@@ -37,7 +37,7 @@ function MyPlantCard({ publicacion }) {
     <div
       className="bg-white  lex flex-row flex-wrap max-w-sm rounded overflow-hidden shadow-lg"
       onClick={(e) => {
-        window.location.href = `https://herbarioapi-production-7512.up.railway.app/api/planta${publicacion.id}`;
+        window.location.href = `api/planta/${publicacion.id}`;
       }}
       role="button"
     >

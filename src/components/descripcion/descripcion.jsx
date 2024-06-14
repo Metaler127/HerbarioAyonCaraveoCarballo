@@ -11,7 +11,7 @@ function Descripcion() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const plantaData = await fetchPlanta(id);
+        const plantaData = await fetchPlanta(plantaId);
         setSelectedObservacion(plantaData.Data); // Asigna los datos de la planta a selectedPlanta
         console.log(plantaData.Data);
         console.log(plantaData.Data.img);
@@ -21,7 +21,7 @@ function Descripcion() {
     };
 
     fetchData();
-  }, [id]);
+  }, [plantaId]);
 
   return (
     <div className="bg-[#474747] h-full w-full p-4 pt-24 flex overflow-auto justify-center items-center gap-4">

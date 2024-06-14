@@ -37,7 +37,7 @@ function MyPlantCard({ publicacion }) {
     <div
       className="bg-white  lex flex-row flex-wrap max-w-sm rounded overflow-hidden shadow-lg"
       onClick={(e) => {
-        console.log("entra");
+        console.log("entra", Data);
         window.location.href = `/planta/${publicacion.Data}`;
       }}
       role="button"

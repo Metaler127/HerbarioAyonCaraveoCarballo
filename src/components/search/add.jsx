@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useModalStore } from "../global/modalStore";
 import Lupa from "../../assets/lupa";
 import icon from "../../assets/camara.svg";
-import { FaLeaf } from "react-icons/fa";
 import {
   fetchObservacion,
   fetchPlantasTodas,
@@ -159,7 +158,6 @@ function Add() {
             className="w-48 flex justify-center items-center rounded-md border-2 opacity-50 gap-4 hover:scale-105"
           >
             Agregar planta
-            <FaLeaf />
           </button>
           <div className="relative w-80 border-2 flex justify-between items-center rounded-lg m-4 p-2">
             <SearchBar onSearch={handleSearch} inputValue={inputValue} />

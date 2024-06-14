@@ -47,7 +47,7 @@ export async function fetchObtenerRegisto() {
 }
 
 export async function fetchPlanta(plantaId) {
-  const resultP = await apiRoute.get(`planta/${plantaId}`);
+  const resultP = await apiRoute.get(`Observacion/${plantaId}`);
   console.log(resultP);
   return resultP.data;
 }

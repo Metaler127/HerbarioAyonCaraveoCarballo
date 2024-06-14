@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import Slider from "react-slick";
+
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import MapView from "../MapView/Mapview"; // Asegúrate de que la ruta sea correcta
-import image1 from "../../assets/arbol.jpeg";
+import MapView from "../MapView/Mapview";
 
-function MySlider() {
+function MySlider({ img }) {
   const [viewRef, setViewRef] = useState(true);
 
   function handleClick() {
@@ -36,7 +35,11 @@ function MySlider() {
         </div>
       ) : (
         <picture className="h-full items-center justify-center">
-          <img src={image1} className="w-full h-full" alt="Imagen" />
+          <img
+            src={`http://127.0.0.1:8000${img}`}
+            className="w-full h-full"
+            alt="Imagen"
+          />
         </picture>
       )}
     </div>

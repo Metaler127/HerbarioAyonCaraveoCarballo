@@ -5,14 +5,16 @@ import { fetchPlanta } from "../../services/apiServices"; // Asegúrate de que l
 
 function Descripcion() {
   const { plantaId } = useParams();
-  const [selectedPlanta, setSelectedPlanta] = useState(null);
+  const [selectedObservacion, setSelectedObservacion] = useState(null);
   const [arrayPlantas, setArrayPlantas] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const plantaData = await fetchPlanta();
-        setSelectedPlanta(plantaData); // Asigna los datos de la planta a selectedPlanta
+        const plantaData = await fetchPlanta(plantaId);
+        setSelectedObservacion(plantaData.Data); // Asigna los datos de la planta a selectedPlanta
+        console.log(plantaData.Data);
+        console.log(plantaData.Data.img);
       } catch (error) {
         console.error("Error fetching planta data:", error);
       }
@@ -25,34 +27,44 @@ function Descripcion() {
     <div className="bg-[#474747] h-full w-full p-4 pt-24 flex overflow-auto justify-center items-center gap-4">
       <div className="bg-white w-full h-full grid grid-cols-3 rounded-md">
         <div className="bg-white flex-auto justify-center rounded-md">
-          <MySlider />
+          <MySlider img={selectedObservacion?.img} />
         </div>
         <div className="col-span-2">
-          {selectedPlanta ? (
+          {selectedObservacion ? (
             <>
               <div className="w-auto text-5xl pl-5 pb-7">
-                {selectedPlanta.nombre_comun}
+                {selectedObservacion.planta.nombreComun}
               </div>
               <div className="pl-5 pb-7">
-                Nombre cientifico: {selectedPlanta.nombre_cientifico}
+                Nombre cientifico: {selectedObservacion.planta.nombreCientifico}
               </div>
               <div className="pl-5 mb-7">
-                Fecha de la colecta: {selectedPlanta.fecha_colecta}
+                Fecha de la colecta: {selectedObservacion.fechaColecta}
               </div>
               <div className="pl-5 mb-7">
-                Longitud: {selectedPlanta.longitud}
+                Longitud: {selectedObservacion.longitud}
               </div>
-              <div className="pl-5 mb-7">Latitud: {selectedPlanta.latitud}</div>
-              <div className="pl-5 mb-7">Habitat: {selectedPlanta.habitat}</div>
-              <div className="pl-5 mb-7">Familia: {selectedPlanta.familia}</div>
-              <div className="pl-5 mb-7">Ciudad: {selectedPlanta.ciudad}</div>
-              <div className="pl-5 mb-7">País: {selectedPlanta.pais}</div>
               <div className="pl-5 mb-7">
-                Fisiografia: {selectedPlanta.fisiografia}
+                Latitud: {selectedObservacion.latitud}
+              </div>
+              <div className="pl-5 mb-7">
+                Habitat: {selectedObservacion.planta.habitat}
+              </div>
+              <div className="pl-5 mb-7">
+                Familia: {selectedObservacion.planta.familia}
+              </div>
+              <div className="pl-5 mb-7">
+                Ciudad: {selectedObservacion.localidad}
+              </div>
+              <div className="pl-5 mb-7">
+                País: {selectedObservacion.ubicacion}
+              </div>
+              <div className="pl-5 mb-7">
+                Fisiografia: {selectedObservacion.fisiografia}
               </div>
               <div className="pl-5 mb-4">Informacion de la planta:</div>
               <div className="pl-5 text-justify mb-3 mr-5">
-                {selectedPlanta.informacion}
+                {selectedObservacion.planta.infoAdicional}
               </div>
               <div className="w-full flex justify-center items-center pt-2">
                 <button className="bg-red-700 text-white w-20 h-10 border-2 rounded-md">

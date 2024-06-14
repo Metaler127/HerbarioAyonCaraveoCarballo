@@ -13,7 +13,7 @@ function Cards() {
       .get(url)
       .then(function (response) {
         setPublicaciones(response.data.Data);
-        console.log(response.data.Data);
+        console.log(response.data);
       })
       .catch(function (error) {
         console.log("Hola", error);
@@ -23,36 +23,34 @@ function Cards() {
 
   return (
     <div className=" grid grid-cols-4 gap-4">
-      {publicaciones.map((publicacion, i) => (
-        <MyPlantCard key={i} publicacion={publicacion} />
-      ))}
+      {publicaciones &&
+        publicaciones.map((publicacion, i) => (
+          <MyPlantCard key={i} publicacion={publicacion} />
+        ))}
     </div>
   );
 }
 
 function MyPlantCard({ publicacion }) {
-  {
-    /* 
- // <Link
-    //to={`${publicacion.planta.id}`} // Asegúrate de que 'planta.id' es el identificador correcto
-    //key={i}
-   // className="max-w-sm rounded overflow-hidden shadow-lg bg-white hover:scale-110 transition-all duration-300"
- // >
- */
-  }
   return (
     <div
       className="bg-white  lex flex-row flex-wrap max-w-sm rounded overflow-hidden shadow-lg"
       onClick={(e) => {
-        window.location.href = `/planta/${publicacion.idPlanta}`;
+        window.location.href = `/planta/${publicacion.id}`;
       }}
       role="button"
     >
-      <img className="w-full" src={publicacion.img} alt="imagen bonita"></img>
+      <img
+        className="w-full"
+        src={`http://127.0.0.1:8000${publicacion.img}`}
+        alt="imagen bonita"
+      ></img>
       <div className="px-6 py-4">
         <div className="font-bold text-xl mb-2">
-          {publicacion.planta.nombreComun} (
-          {publicacion.planta.nombreCientifico})
+          {publicacion.planta.nombreComun}
+        </div>
+        <div className="font-bold text-xl mb-2">
+          ({publicacion.planta.nombreCientifico})
         </div>
         <p className="text-black text-base">
           {publicacion.planta.infoAdicional}

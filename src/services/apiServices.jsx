@@ -5,14 +5,14 @@ const apiRoute = axios.create({
 });
 
 export async function fetchLogin(data) {
-  const result = await apiRoute.post("Login", data);
+  const result = await apiRoute.post("login", data);
   console.log(result);
 
   return result.data;
 }
 
 export async function fetchObservacion(data) {
-  const result = await apiRoute.post("Observacion", data, {
+  const result = await apiRoute.post("observacion", data, {
     headers: {
       "Content-Type": "multipart/form-data",
     },
@@ -31,7 +31,7 @@ export async function getLogin() {
 }
 
 export async function getObservaciones() {
-  const result = await apiRoute.get("Observacion");
+  const result = await apiRoute.get("observacion");
   console.log(result);
 
   return result.data;
@@ -49,7 +49,7 @@ export async function fetchObtenerRegisto() {
 }
 
 export async function fetchPlanta(plantaId) {
-  const resultP = await apiRoute.get(`Observacion/${plantaId}`);
+  const resultP = await apiRoute.get(`observacion/${plantaId}`);
   console.log(resultP);
   return resultP.data;
 }
